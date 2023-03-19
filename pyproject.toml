@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "empty-blog"
+version = "0.1.0"
+description = "Simple personal blog"
+authors = ["emp7yhead <artyomkropp@gmail.com>"]
+readme = "README.md"
+packages = [{include = "empty_blog"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+Django = "^4.1.7"
+psycopg2 = "^2.9.5"
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^6.0.0"
+pytest = "^7.2.2"
+pytest-cov = "^4.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
