@@ -10,6 +10,7 @@ packages = [{include = "empty_blog"}]
 python = "^3.11"
 Django = "^4.1.7"
 psycopg2 = "^2.9.5"
+python-dotenv = "^1.0.0"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^6.0.0"
