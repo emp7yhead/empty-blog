@@ -4,7 +4,7 @@ install:
 	poetry install
 
 serve:
-	poetry run python3 manage.py runserver 0.0.0.0:8080
+	poetry run python3 manage.py runserver 0.0.0.0:8081
 
 migrate:
 	poetry run python3 manage.py migrate
