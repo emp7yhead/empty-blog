@@ -1,9 +1,9 @@
 from django.views import generic
 
 
-class MainView(generic.TemplateView):
+class LatestView(generic.TemplateView):
 
-    template_name = 'landing.html'
+    template_name = 'latest.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

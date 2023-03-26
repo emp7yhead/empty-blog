@@ -12,8 +12,8 @@
   <div id="navbar" class="navbar-menu">
 
     <div class="navbar-end">
-      <a href="{% url 'index' %}" class="navbar-item">
-        Home
+      <a href="{% url 'blog:latest' %}" class="navbar-item">
+        Blog
       </a>
 
       <a class="navbar-item">
@@ -41,6 +41,9 @@
       <div class="navbar-item">
         <div class="buttons">
           {% if user.is_authenticated %}
+          <a href="{% url 'auth:join' %}" class="button is-dark" style="background-color: #313B72;">
+            <strong>Profile</strong>
+          </a>
             <a href="{% url 'auth:logout' %}" class="button">
             <strong>Log Out</strong>
             </a>
