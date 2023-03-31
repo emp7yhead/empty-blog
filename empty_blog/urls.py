@@ -10,7 +10,7 @@ urlpatterns = [
         name='index'
     ),
     path('blog/', include('blog.urls')),
-    path('auth/', include('auth.urls')),
+    path('auth/', include('users.urls')),
     # path('profile', include('profiles.urls')),
     # path('articles/', include('articles.urls')),
 ]

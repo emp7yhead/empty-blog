@@ -9,7 +9,7 @@ serve:
 migrate:
 	poetry run python3 manage.py migrate
 
-makemigrations:
+migrations:
 	poetry run python3 manage.py makemigrations
 
 lint:

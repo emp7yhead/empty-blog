@@ -1,17 +1,19 @@
 from django.contrib import messages
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
 from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 
-from auth.forms import UserCreationForm
+from users.forms import CustomAuthenticationForm, CustomUserCreationForm
+from users.models import User
 
 
 class JoinView(CreateView):
 
-    form_class = UserCreationForm
+    form_class = CustomUserCreationForm
     template_name = 'auth/registration.html'
-    success_url = reverse_lazy('auth:login')
+    success_url = reverse_lazy('users:login')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -21,6 +23,7 @@ class JoinView(CreateView):
 
 
 class LoginUserView(SuccessMessageMixin, LoginView):
+    form_class = CustomAuthenticationForm
     template_name = 'auth/login.html'
     success_message = "You're logged in"
     redirect_authenticated_user = True
@@ -34,7 +37,7 @@ class LoginUserView(SuccessMessageMixin, LoginView):
         """Define the title and button text."""
         context = super().get_context_data(**kwargs)
         context['title'] = 'Login'
-        context['button'] = 'Login user'
+        context['button'] = 'Login'
         return context
 
 
@@ -45,3 +48,8 @@ class LogoutUserView(SuccessMessageMixin, LogoutView):
         """Log out and show a logout message."""
         messages.add_message(request, messages.INFO, "You're logged out")
         return super().dispatch(request, *args, **kwargs)
+
+
+class ProfileView(LoginRequiredMixin, DetailView):
+    model = User
+    template_name = 'users/profile.html'
