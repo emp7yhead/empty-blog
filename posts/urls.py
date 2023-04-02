@@ -7,5 +7,5 @@ app_name = 'posts'
 urlpatterns = [
     path('', LatestPostsView.as_view(), name='latest'),
     path('feed/', PostsListView.as_view(), name='feed'),
-    path('<slug:slug>/', PostDetailView.as_view(), name='post_detail'),
+    path('<slug:slug>/', PostDetailView.as_view(), name='details'),
 ]

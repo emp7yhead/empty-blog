@@ -3,9 +3,9 @@ from django.views import generic
 from posts.models import Post
 
 
-class LatestPostsView(generic.TemplateView):
+class LatestPostsView(generic.ListView):
 
-    queryset = Post.objects.filter(status=1).order_by('-created_on')[0:10:1]
+    queryset = Post.objects.filter(status=1).order_by('-created_on')[:10]
     template_name = 'posts/latest.html'
     context_object_name = 'posts'
 
@@ -18,7 +18,7 @@ class LatestPostsView(generic.TemplateView):
 class PostsListView(generic.ListView):
 
     queryset = Post.objects.filter(status=1).order_by('-created_on')
-    template_name = 'posts/list.html'
+    template_name = 'posts/feed.html'
     context_object_name = 'posts'
 
     def get_context_data(self, **kwargs):
