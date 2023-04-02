@@ -12,11 +12,11 @@
   <div id="navbar" class="navbar-menu">
 
     <div class="navbar-end">
-      <a href="{% url 'blog:latest' %}" class="navbar-item">
+      <a href="{% url 'posts:latest' %}" class="navbar-item">
         Blog
       </a>
 
-      <a class="navbar-item">
+      <a href="{% url 'posts:feed' %}" class="navbar-item">
         Articles
       </a>
 

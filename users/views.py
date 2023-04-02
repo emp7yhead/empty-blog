@@ -27,11 +27,11 @@ class LoginUserView(SuccessMessageMixin, LoginView):
     template_name = 'auth/login.html'
     success_message = "You're logged in"
     redirect_authenticated_user = True
-    next_page = 'blog:latest'
+    next_page = 'posts:latest'
 
     def get_success_url(self):
         """Change redirect url."""
-        return reverse_lazy('blog:latest')
+        return reverse_lazy('posts:latest')
 
     def get_context_data(self, **kwargs):
         """Define the title and button text."""
