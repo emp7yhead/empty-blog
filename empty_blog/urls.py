@@ -11,6 +11,6 @@ urlpatterns = [
     ),
     path('blog/', include('blog.urls')),
     path('auth/', include('users.urls')),
-    # path('profile', include('profiles.urls')),
+    path('posts/', include('posts.urls')),
     # path('articles/', include('articles.urls')),
 ]

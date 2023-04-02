@@ -1,16 +1,6 @@
 from django.views import generic
 
 
-class LatestView(generic.TemplateView):
-
-    template_name = 'latest.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = 'Empty Blog'
-        return context
-
-
 class AboutView(generic.TemplateView):
 
     template_name = 'about.html'
