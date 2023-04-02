@@ -1,4 +1,4 @@
-<div class="uk-grid-column-small uk-grid-row-medium uk-child-width-1-2@s uk-flex-center" uk-grid>
+<div class="uk-grid-match uk-grid-column-small uk-grid-row-medium uk-child-width-1-2@s uk-flex-center" uk-grid>
   {% for post in posts %}
   <div>
     <div class="uk-card uk-card-default uk-card-hover">
@@ -10,7 +10,7 @@
           <div class="uk-width-expand">
             <h3 class="uk-card-title uk-margin-remove-bottom"><span class="uk-link-heading">{{ post.title }}</span></h3>
             <p class="uk-text-meta uk-margin-remove-top uk-margin-remove-bottom">Author: {{ post.author }}</p>
-            <p class="uk-text-meta uk-margin-remove-top"><time datetime="{{ post.created_on }}">Created: {{ post.created_on|date:"d M Y, H:i" }}</time></p>
+            <p class="uk-text-meta uk-margin-remove-top"><time datetime="{{ post.created_on|date:"c" }}">Created: {{ post.created_on|date:"d M Y, H:i" }}</time></p>
           </div>
         </div>
       </div>
