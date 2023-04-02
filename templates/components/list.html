@@ -1,0 +1,26 @@
+<div class="uk-grid-column-small uk-grid-row-medium uk-child-width-1-2@s uk-flex-center" uk-grid>
+  {% for post in posts %}
+  <div>
+    <div class="uk-card uk-card-default uk-card-hover">
+      <div class="uk-card-header">
+        <div class="uk-grid-small uk-flex-middle" uk-grid>
+          <div class="uk-width-auto">
+              <img class="uk-border-circle" width="50" height="50" src="{{ post.author.profile.avatar.url }}" alt="Avatar">
+          </div>
+          <div class="uk-width-expand">
+            <h3 class="uk-card-title uk-margin-remove-bottom"><span class="uk-link-heading">{{ post.title }}</span></h3>
+            <p class="uk-text-meta uk-margin-remove-top uk-margin-remove-bottom">Author: {{ post.author }}</p>
+            <p class="uk-text-meta uk-margin-remove-top"><time datetime="{{ post.created_on }}">Created: {{ post.created_on|date:"d M Y, H:i" }}</time></p>
+          </div>
+        </div>
+      </div>
+      <a href="{% url 'posts:details' post.slug %}" class="uk-card-body uk-link-toggle">
+        <p>{{ post.content|slice:200 }}...</p>
+      </a>
+      <div class="uk-card-footer">
+        <a href="#" class="uk-button uk-button-text ">Add to Favorites</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>

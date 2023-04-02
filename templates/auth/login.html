@@ -1,16 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="column is-three-fifths is-offset-one-fifth">
+<div>
   <form method="post" class="box">
     {% csrf_token %}
-    {% for error in form.non_field_errors %}
-        <li>{{ error }}</li>
-    {% endfor %}
     {{ form }}
-    <div class="buttons">
-    <button class="button" style="background-color: #BEE3DB">{{ button }}</button>
-    </div>
+    <button class="uk-button uk-margin" style="background-color: #BEE3DB">{{ button }}</button>
   </form>
 </div>
 {% endblock content %}

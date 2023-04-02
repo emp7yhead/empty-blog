@@ -1,18 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="column is-three-fifths
-is-offset-one-fifth">
-<form method="post" class="box">
-    {% csrf_token %}
-    {% for field in form %}
-        <label class="label" for="{{ field.auto_id }}">{{ field.label }}</label>
-        {{ field }}
-        <div class="content is-small">{{ field.help_text}}</div>
-    {% endfor %}
-    <div class="buttons">
-    <button class="button" style="background-color: #BEE3DB;">{{ button }}</button>
-    </div>
+<form method="post">
+  {% csrf_token %}
+    {{form}}
+  <button class="uk-button uk-margin" style="background-color: #BEE3DB;">{{ button }}</button>
 </form>
 </div>
 {% endblock content %}

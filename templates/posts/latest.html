@@ -3,28 +3,10 @@
 
 {% block header %}{% endblock %}
 {% block content %}
-<h1 class="title">Hello, {{ user }}</h1>
-<h2 class="subtitle">Look what's new here</h2>
 
-    {% for post in posts %}
-    <div class="card">
-        <header class="card-header">
-        <p class="card-header-title">
-            {{ post.title }}
-        </p>
-        <p class="subtitle is-6">Author: {{ post.author }}</p>
-        <p class="subtitle is-6">Created: {{ post.created_on }}</p>
-        </header>
-        <div class="card-content">
-        <div class="content">
-            {{ post.content|slice:":200" }}...
-        </div>
-        </div>
-        <footer class="card-footer">
-        <a href="#" class="card-footer-item">Add to Favorites</a>
-        <a href="#" class="card-footer-item">Upvote</a>
-        </footer>
-    </div>
-    {% endfor %}
+<h1 class="uk-heading-small uk-heading-divider">Hello, {{ user }}</h1>
+<h2 class="uk-article-meta uk-margin">Look what's new here</h2>
+
+{% include 'components/list.html' %}
 
 {% endblock content %}
