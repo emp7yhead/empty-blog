@@ -3,8 +3,11 @@
 install: env  ## Install dependencies with poetry
 	poetry install
 
-serve:  ## Run dev server
+serve-dev:  ## Run dev server
 	poetry run python3 manage.py runserver 0.0.0.0:8081
+
+serve-prod:  ## Run production server
+	poetry run gunicorn --bind 0.0.0.0:8000 empty_blog.wsgi:application
 
 migrate:  ## Apply migrations
 	poetry run python3 manage.py migrate
